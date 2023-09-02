@@ -19,12 +19,12 @@ try {
 }
 
 let PROXY_CONFIG = [];
-
+const host = 'http://115.140.124.99:3006'
 if (configContent && configContent.BASE_MODULE === 'liquid') {
   PROXY_CONFIG.push(...[
     {
       context: ['/liquid/api/v1/**'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       ws: true,
       changeOrigin: true,
@@ -35,7 +35,7 @@ if (configContent && configContent.BASE_MODULE === 'liquid') {
     },
     {
       context: ['/liquid/api/**'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       changeOrigin: true,
       proxyTimeout: 30000,
@@ -45,7 +45,7 @@ if (configContent && configContent.BASE_MODULE === 'liquid') {
     },
     {
       context: ['/liquidtestnet/api/v1/**'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       ws: true,
       changeOrigin: true,
@@ -56,7 +56,7 @@ if (configContent && configContent.BASE_MODULE === 'liquid') {
     },
     {
       context: ['/liquidtestnet/api/**'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       changeOrigin: true,
       proxyTimeout: 30000,
@@ -72,7 +72,7 @@ if (configContent && configContent.BASE_MODULE === 'bisq') {
   PROXY_CONFIG.push(...[
     {
       context: ['/bisq/api/v1/ws'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       ws: true,
       changeOrigin: true,
@@ -83,14 +83,14 @@ if (configContent && configContent.BASE_MODULE === 'bisq') {
     },
     {
       context: ['/bisq/api/v1/**'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       changeOrigin: true,
       proxyTimeout: 30000,
     },
     {
       context: ['/bisq/api/**'],
-      target: `http://192.168.219.112:3006`,
+      target: host,
       secure: false,
       changeOrigin: true,
       proxyTimeout: 30000,
@@ -104,7 +104,7 @@ if (configContent && configContent.BASE_MODULE === 'bisq') {
 PROXY_CONFIG.push(...[
   {
     context: ['/testnet/api/v1/lightning/**'],
-    target: `http://192.168.219.112:3006`,
+    target: host,
     secure: false,
     changeOrigin: true,
     proxyTimeout: 30000,
@@ -114,7 +114,7 @@ PROXY_CONFIG.push(...[
   },
   {
     context: ['/api/v1/services/**'],
-    target: `http://192.168.219.112:3006`,
+    target: host,
     secure: false,
     ws: true,
     changeOrigin: true,
@@ -122,7 +122,7 @@ PROXY_CONFIG.push(...[
   },
   {
     context: ['/api/v1/**'],
-    target: `http://192.168.219.112:3006`,
+    target: host,
     secure: false,
     ws: true,
     changeOrigin: true,
@@ -130,7 +130,7 @@ PROXY_CONFIG.push(...[
   },
   {
     context: ['/api/**'],
-    target: `http://192.168.219.112:3006`,
+    target: host,
     secure: false,
     changeOrigin: true,
     proxyTimeout: 30000,
