@@ -22,7 +22,10 @@
     </div>
   </ng-template>
     <ng-container *ngIf="{ val: connectionState$ | async } as connectionState">
-      <app-svg-images *ngIf="!officialMempoolSpace" name="mempoolSpace" viewBox="0 0 500 126" class="mempool-logo" [ngStyle]="{'opacity': connectionState.val === 2 ? 1 : 0.5 }"></app-svg-images>
+      <div class="keating-logo">
+        <img class="avatar-image" src="https://pbs.twimg.com/profile_images/1589247318615654400/FDp8C8FV_400x400.jpg"/>
+        <span class="title">Keating's mempool</span>
+      </div>
       <app-svg-images *ngIf="officialMempoolSpace" name="officialMempoolSpace" viewBox="0 0 500 126"></app-svg-images>
       <div class="connection-badge">
         <div class="badge badge-warning" *ngIf="connectionState.val === 0" i18n="master-page.offline">Offline</div>

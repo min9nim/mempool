@@ -192,6 +192,19 @@ nav {
   height: 35px;
 }
 
+.keating-logo {
+  display: flex;
+  align-items: center;
+  gap:10px;
+  .avatar-image {
+    width: 45px;
+    border-radius: 30%;
+  }
+  .title {
+    font-size: 20px;
+  }
+}
+
 .beta {
   display: inline;
   position: absolute;
