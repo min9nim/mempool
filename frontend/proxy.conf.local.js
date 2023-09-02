@@ -19,7 +19,9 @@ try {
 }
 
 let PROXY_CONFIG = [];
+
 const host = 'http://115.140.124.99:3006'
+
 if (configContent && configContent.BASE_MODULE === 'liquid') {
   PROXY_CONFIG.push(...[
     {

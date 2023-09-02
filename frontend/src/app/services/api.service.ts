@@ -9,6 +9,7 @@ import { Outspend, Transaction } from '../interfaces/electrs.interface';
 import { Conversion } from './price.service';
 import { MenuGroup } from '../interfaces/services.interface';
 import { StorageService } from './storage.service';
+import {HOST} from 'src/app/host'
 
 // Todo - move to config.json
 const SERVICES_API_PREFIX = `/api/v1/services`;
@@ -29,7 +30,7 @@ export class ApiService {
     if (!stateService.isBrowser) { // except when inside AU SSR process
       this.apiBaseUrl = this.stateService.env.NGINX_PROTOCOL + '://' + this.stateService.env.NGINX_HOSTNAME + ':' + this.stateService.env.NGINX_PORT;
     }
-    this.apiBasePath = 'http://115.140.124.99:3006'; // assume mainnet by default
+    this.apiBasePath = HOST.url; // assume mainnet by default
     this.stateService.networkChanged$.subscribe((network) => {
       if (network === 'bisq' && !this.stateService.env.BISQ_SEPARATE_BACKEND) {
         network = '';
