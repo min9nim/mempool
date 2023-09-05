@@ -5,6 +5,7 @@ import { tap, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from "@angular/router";
 import { faqData, restApiDocsData, wsApiDocsData } from './api-docs-data';
 import { FaqTemplateDirective } from '../faq-template/faq-template.component';
+import {HOST} from 'frontend/src/app/host'
 
 @Component({
   selector: 'app-api-docs',
@@ -77,11 +78,11 @@ export class ApiDocsComponent implements OnInit, AfterViewInit {
       })
     );
 
-    if (document.location.port !== '') {
-      this.hostname = `${this.hostname}:${document.location.port}`;
-    }
+    // if (document.location.port !== '') {
+    //   this.hostname = `${this.hostname}:${document.location.port}`;
+    // }
 
-    this.hostname = `${document.location.protocol}//${this.hostname}`;
+    this.hostname = HOST.url
 
     this.faq = faqData;
     this.restDocs = restApiDocsData;

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Env, StateService } from '../../services/state.service';
+import {HOST} from 'frontend/src/app/host'
 
 @Component({
   selector: 'app-code-template',
@@ -65,11 +66,11 @@ export class CodeTemplateComponent implements OnInit {
       }
       if(['', 'main', 'liquid', 'bisq', 'liquidtestnet'].includes(this.network)) {
         codeText = codeText.replace('mempoolJS();', `mempoolJS({
-    hostname: '${document.location.hostname}'
+    hostname: '${HOST.host+ ':'+HOST.port}'
   });`);
       } else {
         codeText = codeText.replace('mempoolJS();', `mempoolJS({
-    hostname: '${document.location.hostname}',
+    hostname: '${HOST.host+ ':'+HOST.port}',
     network: '${this.network}'
   });`);
       }
@@ -96,11 +97,11 @@ export class CodeTemplateComponent implements OnInit {
       }
       if(['', 'main', 'liquid', 'bisq'].includes(this.network)) {
         codeText = codeText.replace('mempoolJS();', `mempoolJS({
-          hostname: '${document.location.hostname}'
+          hostname: '${HOST.host + ':'+HOST.port}'
         });`);
       } else {
         codeText = codeText.replace('mempoolJS();', `mempoolJS({
-          hostname: '${document.location.hostname}',
+          hostname: '${HOST.host + ':'+HOST.port}',
           network: '${this.network}'
         });`);
       }
@@ -303,7 +304,7 @@ yarn add @mempool/liquid.js`;
 
   replaceCurlPlaceholder(curlText: any, code: any) {
     let text = curlText;
-    text = text.replace( "[[hostname]]", this.hostname );
+    text = text.replace( "[[hostname]]", this.hostname);
     text = text.replace( "[[baseNetworkUrl]]", this.baseNetworkUrl );
     for (let index = 0; index < code.curl.length; index++) {
       const textReplace = code.curl[index];
