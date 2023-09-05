@@ -26,6 +26,7 @@ import { LiquidUnblinding } from './liquid-ublinding';
 import { RelativeUrlPipe } from '../../shared/pipes/relative-url/relative-url.pipe';
 import { Price, PriceService } from '../../services/price.service';
 import { isFeatureActive } from '../../bitcoin.utils';
+import {HOST} from 'src/app/host'
 
 @Component({
   selector: 'app-transaction',
@@ -33,6 +34,7 @@ import { isFeatureActive } from '../../bitcoin.utils';
   styleUrls: ['./transaction.component.scss'],
 })
 export class TransactionComponent implements OnInit, AfterViewInit, OnDestroy {
+  apiServerUrl = HOST.url;
   network = '';
   tx: Transaction;
   txId: string;
